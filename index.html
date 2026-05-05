@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamari Urdu — Complete Study Guide · Semester II</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f1a;
+    --card: #1a1a2e;
+    --card2: #16213e;
+    --accent1: #a855f7;
+    --accent2: #06b6d4;
+    --accent3: #f472b6;
+    --accent4: #34d399;
+    --accent5: #fb923c;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: rgba(168,85,247,0.25);
+    --gold: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans', sans-serif;
+    direction: ltr;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, #1a0533 0%, #0f172a 40%, #0c1a3d 100%);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 60px 40px;
+    position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%);
+    top: -100px; left: -100px;
+  }
+  .cover::after {
+    content: ''; position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+    bottom: -80px; right: -80px;
+  }
+  .cover-badge {
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    color: white; padding: 6px 20px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 30px;
+    position: relative; z-index: 1;
+  }
+  .cover-urdu-title {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 52px; line-height: 1.5; color: white;
+    margin-bottom: 10px; position: relative; z-index: 1;
+    text-shadow: 0 0 40px rgba(168,85,247,0.4);
+  }
+  .cover-eng-title {
+    font-size: 22px; font-weight: 300; color: var(--accent2);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 40px; position: relative; z-index: 1;
+  }
+  .cover-desc {
+    max-width: 600px; color: var(--muted); font-size: 16px;
+    line-height: 1.8; position: relative; z-index: 1; margin-bottom: 50px;
+  }
+  .cover-units {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center; position: relative; z-index: 1; margin-bottom: 50px;
+  }
+  .cover-unit-pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 25px; padding: 8px 18px;
+    font-size: 13px; color: var(--text);
+  }
+  .cover-meta {
+    position: relative; z-index: 1; color: var(--muted); font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px; width: 100%; max-width: 600px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--card2); border: 1px solid var(--border);
+    border-radius: 20px; padding: 32px 36px; margin-bottom: 40px;
+  }
+  .toc-title { font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 10px; }
+  .toc-item { display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; background: rgba(255,255,255,0.04);
+    border-radius: 10px; font-size: 14px; color: var(--text); text-decoration: none;
+    transition: background 0.2s; }
+  .toc-item:hover { background: rgba(168,85,247,0.12); }
+  .toc-num { font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    color: var(--muted); min-width: 28px; }
+  .toc-label { font-family: 'Noto Nastaliq Urdu', serif; font-size: 18px;
+    direction: rtl; color: white; line-height: 1.7; }
+
+  /* MAIN */
+  .main { max-width: 900px; margin: 0 auto; padding: 60px 30px; }
+
+  /* UNIT HEADER */
+  .unit-header {
+    display: flex; align-items: center; gap: 20px;
+    margin: 60px 0 30px 0; padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .unit-number {
+    width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700; flex-shrink: 0;
+  }
+  .unit-u1 { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+  .unit-u2 { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+  .unit-u3 { background: linear-gradient(135deg, #db2777, #f472b6); }
+  .unit-u4 { background: linear-gradient(135deg, #059669, #34d399); }
+  .unit-u5 { background: linear-gradient(135deg, #d97706, #fbbf24); }
+  .unit-title-block h2 {
+    font-size: 14px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+  }
+  .unit-title-block h3 { font-size: 26px; font-weight: 700; color: white; }
+
+  /* TOPIC CARD */
+  .topic-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px; margin-bottom: 30px;
+    position: relative; overflow: hidden;
+  }
+  .topic-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+  }
+  .tc-purple::before { background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc); }
+  .tc-cyan::before   { background: linear-gradient(90deg, #0891b2, #06b6d4, #67e8f9); }
+  .tc-pink::before   { background: linear-gradient(90deg, #db2777, #f472b6, #fbcfe8); }
+  .tc-green::before  { background: linear-gradient(90deg, #059669, #34d399, #a7f3d0); }
+  .tc-gold::before   { background: linear-gradient(90deg, #d97706, #fbbf24, #fde68a); }
+  .tc-orange::before { background: linear-gradient(90deg, #ea580c, #fb923c, #fed7aa); }
+
+  .topic-q-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 5px 14px; font-size: 12px;
+    color: var(--muted); margin-bottom: 20px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .topic-title-urdu {
+    font-family: 'Noto Nastaliq Urdu', serif; font-size: 32px; color: white;
+    text-align: right; direction: rtl; margin-bottom: 6px; line-height: 1.8;
+  }
+  .topic-title-eng { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 20px; }
+
+  .explanation-box {
+    background: rgba(255,255,255,0.04); border-left: 3px solid var(--accent1);
+    border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 24px;
+    font-size: 15px; color: var(--text); line-height: 1.8;
+  }
+  .explanation-box.cyan  { border-left-color: var(--accent2); }
+  .explanation-box.pink  { border-left-color: var(--accent3); }
+  .explanation-box.green { border-left-color: var(--accent4); }
+  .explanation-box.gold  { border-left-color: var(--gold); }
+  .explanation-box.orange{ border-left-color: var(--accent5); }
+
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; margin-top: 24px;
+  }
+
+  /* EXAMPLE TABLE */
+  .example-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; margin-bottom: 10px; }
+  .example-table thead th {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted); padding: 0 16px 8px; text-align: left;
+  }
+  .example-table thead th.rtl-col { text-align: right; }
+  .example-table tbody tr { background: rgba(255,255,255,0.04); border-radius: 10px; }
+  .example-table tbody tr:hover { background: rgba(255,255,255,0.07); }
+  .example-table tbody td { padding: 13px 16px; vertical-align: middle; }
+  .example-table tbody td:first-child { border-radius: 10px 0 0 10px; }
+  .example-table tbody td:last-child  { border-radius: 0 10px 10px 0; }
+
+  .urdu-text { font-family: 'Noto Nastaliq Urdu', serif; font-size: 24px; color: white; direction: rtl; text-align: right; line-height: 1.9; }
+  .urdu-text-lg { font-family: 'Noto Nastaliq Urdu', serif; font-size: 30px; color: white; direction: rtl; text-align: right; line-height: 2; }
+  .roman   { color: var(--accent2); font-weight: 600; font-size: 15px; }
+  .meaning { color: var(--muted); font-size: 14px; }
+  .num-col { color: var(--accent1); font-weight: 700; font-size: 13px; }
+
+  /* SOUND GRID */
+  .sound-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 10px; }
+  .sound-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 16px 18px; display: flex; align-items: center; gap: 14px;
+  }
+  .sound-roman-big { font-size: 22px; font-weight: 800; color: var(--accent1); min-width: 50px; font-family: monospace; }
+  .sound-right { flex: 1; }
+  .sound-urdu { font-family: 'Noto Nastaliq Urdu', serif; font-size: 22px; color: white; direction: rtl; text-align: right; line-height: 1.8; }
+  .sound-example { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* LETTER GROUP GRID */
+  .letter-group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 10px; }
+  .letter-group-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 20px; text-align: center;
+  }
+  .letter-group-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .letter-group-urdu { font-family: 'Noto Nastaliq Urdu', serif; font-size: 38px; color: var(--accent1); direction: rtl; line-height: 1.8; margin-bottom: 8px; }
+  .letter-group-roman { font-size: 14px; color: var(--accent2); font-weight: 700; margin-bottom: 12px; }
+  .letter-group-words { font-family: 'Noto Nastaliq Urdu', serif; font-size: 17px; color: var(--text); direction: rtl; line-height: 2.2; text-align: right; }
+
+  /* POEM BLOCK */
+  .poem-block {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 28px 32px; margin: 16px 0;
+  }
+  .poem-title { font-family: 'Noto Nastaliq Urdu', serif; font-size: 28px; color: var(--gold); direction: rtl; text-align: center; margin-bottom: 20px; line-height: 1.8; }
+  .poem-line { font-family: 'Noto Nastaliq Urdu', serif; font-size: 22px; color: var(--text); direction: rtl; text-align: right; line-height: 2.2; padding: 4px 0; }
+  .poem-author { font-size: 13px; color: var(--muted); text-align: right; margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+  /* PROSE BLOCK */
+  .prose-block {
+    background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent5);
+    border-radius: 0 16px 16px 0; padding: 24px 28px; margin: 16px 0;
+    font-family: 'Noto Nastaliq Urdu', serif; font-size: 20px;
+    color: var(--text); direction: rtl; text-align: right; line-height: 2.4;
+  }
+  .prose-title { font-family: 'Noto Nastaliq Urdu', serif; font-size: 28px; color: var(--accent5); direction: rtl; text-align: center; margin-bottom: 16px; line-height: 1.8; }
+
+  /* PAIRS GRID */
+  .pairs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 10px; }
+  .pair-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 18px; text-align: center;
+  }
+  .pair-urdu   { font-family: 'Noto Nastaliq Urdu', serif; font-size: 26px; color: white; direction: rtl; line-height: 1.9; }
+  .pair-roman  { font-size: 14px; color: var(--accent2); font-weight: 600; margin-top: 4px; }
+  .pair-meaning{ font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* PUNC TABLE */
+  .punc-row {
+    display: grid; grid-template-columns: 80px 1fr 1fr 1fr;
+    gap: 0; background: rgba(255,255,255,0.04);
+    border-radius: 12px; margin-bottom: 8px; overflow: hidden;
+  }
+  .punc-row.header { background: transparent; }
+  .punc-cell { padding: 14px 16px; font-size: 14px; color: var(--text); }
+  .punc-symbol {
+    font-family: 'Noto Nastaliq Urdu', serif; font-size: 28px; color: var(--accent3);
+    padding: 10px 16px; display: flex; align-items: center; justify-content: center;
+  }
+  .punc-row.header .punc-cell { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+  /* NUMERALS GRID */
+  .num-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 14px; }
+  .num-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 16px 10px; text-align: center;
+  }
+  .num-arabic { font-family: 'Noto Nastaliq Urdu', serif; font-size: 32px; color: var(--gold); direction: rtl; line-height: 1.6; }
+  .num-urdu   { font-family: 'Noto Nastaliq Urdu', serif; font-size: 18px; color: white; direction: rtl; line-height: 1.9; margin: 4px 0; }
+  .num-roman  { font-size: 12px; color: var(--accent2); font-weight: 600; }
+  .num-int    { font-size: 22px; font-weight: 800; color: var(--muted); }
+
+  /* ABBREV CARDS */
+  .abbrev-grid { display: grid; gap: 12px; }
+  .abbrev-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 20px 24px;
+    display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: center;
+  }
+  .abbrev-symbol-block { text-align: center; }
+  .abbrev-symbol { font-family: 'Noto Nastaliq Urdu', serif; font-size: 28px; color: var(--gold); direction: rtl; line-height: 1.8; }
+  .abbrev-label { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
+  .abbrev-info h4 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 6px; }
+  .abbrev-info p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .abbrev-urdu { font-family: 'Noto Nastaliq Urdu', serif; font-size: 20px; direction: rtl; color: var(--text); margin-top: 6px; line-height: 1.8; }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 12px; padding: 16px 20px; margin-top: 20px;
+    font-size: 14px; color: var(--text); display: flex; gap: 12px;
+  }
+  .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .callout.cyan   { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.25); }
+  .callout.green  { background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.25); }
+  .callout.gold   { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.25); }
+  .callout.orange { background: rgba(251,146,60,0.08); border-color: rgba(251,146,60,0.25); }
+
+  /* DIVIDER */
+  .topic-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 10px 0 30px;
+  }
+
+  /* READING SECTION */
+  .reading-section {
+    background: linear-gradient(135deg, rgba(251,191,36,0.06), rgba(251,146,60,0.04));
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 20px; padding: 32px 36px; margin-bottom: 30px;
+  }
+  .reading-header {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .reading-title { font-size: 22px; font-weight: 700; color: white; margin-bottom: 20px; }
+
+  /* COMPARE TABLE */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+  .compare-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 16px;
+  }
+  .compare-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .compare-urdu { font-family: 'Noto Nastaliq Urdu', serif; font-size: 22px; color: white; direction: rtl; text-align: right; line-height: 2; }
+  .compare-meaning { font-size: 13px; color: var(--muted); margin-top: 6px; text-align: right; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 50px 30px; color: var(--muted);
+    font-size: 14px; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer .urdu-footer {
+    font-family: 'Noto Nastaliq Urdu', serif; font-size: 26px;
+    color: var(--accent1); direction: rtl; margin-bottom: 10px; line-height: 1.9;
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .cover { background: #f0f0f8; min-height: auto; padding: 40px; }
+    .topic-card { background: #f9f9f9; border-color: #ddd; page-break-inside: avoid; }
+    .unit-header { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">📚 ہماری اردو · Maktaba Jamia Delhi · B.A. Semester II</div>
+  <div class="cover-urdu-title">ہماری اردو</div>
+  <div class="cover-eng-title">Hamari Urdu — General Urdu · Semester II</div>
+  <div class="cover-desc">
+    Based on the official <em>Hamari Urdu</em> textbook (Maktaba Jamia, Delhi) for undergraduate students.
+    This guide covers all five units of the Second Semester paper with word examples, reading passages, grammar rules, and exercises drawn directly from the book.
+  </div>
+  <div class="cover-units">
+    <div class="cover-unit-pill">Unit I · دو چشمی ہ &amp; Letter Groups</div>
+    <div class="cover-unit-pill">Unit II · اضافت · واو عطف · واو معدولہ</div>
+    <div class="cover-unit-pill">Unit III · الف مقصورہ · تنوین</div>
+    <div class="cover-unit-pill">Unit IV · الف لام · Transliteration</div>
+    <div class="cover-unit-pill">Unit V · رموزاوقاف · Abbreviations · Numerals</div>
+  </div>
+  <div class="cover-meta">Max Marks: 50 · Time: 2 Hours · Attempt any 5 (1 from each Unit) · Paper Code: 24-BLU-GU-21</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="toc-title">📋 Contents — Quick Navigation</div>
+  <div class="toc-grid">
+    <a href="#unit1" class="toc-item"><span class="toc-num">U·I</span><span class="toc-label">دو چشمی ہ</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Do Chashmi He</span></a>
+    <a href="#letter-groups" class="toc-item"><span class="toc-num">U·I</span><span class="toc-label">حروف کے گروہ</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Letter Groups</span></a>
+    <a href="#unit2" class="toc-item"><span class="toc-num">U·II</span><span class="toc-label">اضافت</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Izafat</span></a>
+    <a href="#vaao-atf" class="toc-item"><span class="toc-num">U·II</span><span class="toc-label">واو عطف</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Vaao Atf</span></a>
+    <a href="#vaao-madula" class="toc-item"><span class="toc-num">U·II</span><span class="toc-label">واو معدولہ</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Vaao Madula</span></a>
+    <a href="#unit3" class="toc-item"><span class="toc-num">U·III</span><span class="toc-label">الف مقصورہ</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Alif Maqsura</span></a>
+    <a href="#tanwin" class="toc-item"><span class="toc-num">U·III</span><span class="toc-label">تنوین</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Tanwin</span></a>
+    <a href="#unit4" class="toc-item"><span class="toc-num">U·IV</span><span class="toc-label">الف لام</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Alif Laam</span></a>
+    <a href="#transliteration" class="toc-item"><span class="toc-num">U·IV</span><span class="toc-label">رومن / دیوناگری</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Transliteration</span></a>
+    <a href="#unit5" class="toc-item"><span class="toc-num">U·V</span><span class="toc-label">رموزاوقاف</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Punctuation</span></a>
+    <a href="#abbreviations" class="toc-item"><span class="toc-num">U·V</span><span class="toc-label">اختصارات</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Abbreviations</span></a>
+    <a href="#numerals" class="toc-item"><span class="toc-num">U·V</span><span class="toc-label">گنتی</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Urdu Numerals</span></a>
+    <a href="#reading" class="toc-item"><span class="toc-num">📖</span><span class="toc-label">اشعار و نثر</span><span style="color:var(--muted); font-size:13px; margin-left:auto;">Reading Passages</span></a>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  UNIT I  -->
+<!-- ============================================================ -->
+<div class="unit-header" id="unit1">
+  <div class="unit-number unit-u1">I</div>
+  <div class="unit-title-block">
+    <h2>Unit One</h2>
+    <h3>Do Chashmi He &amp; Letter Groups</h3>
+  </div>
+</div>
+
+<!-- DO CHASHMI HE -->
+<div class="topic-card tc-purple">
+  <div class="topic-q-badge">Lesson 1 · Q1 · 10 Marks</div>
+  <div class="topic-title-urdu">دو چشمی ہ</div>
+  <div class="topic-title-eng">Do Chashmii He — The Aspirated "H" (ہ)</div>
+
+  <div class="explanation-box">
+    <strong>What is دو چشمی ہ?</strong><br>
+    This special form of ہ is called <em>do chashmii he</em> ("two-eyed he") because of its two loop-like openings when written in the middle of a word (ﻬ). It is <strong>NOT</strong> pronounced as a standalone "h." Instead, it attaches to the consonant before it to create an <strong>aspirated sound</strong> — a consonant with a puff of breath.<br><br>
+    In Roman transliteration, aspirated consonants are written as two-letter combinations: <strong>bh, ph, th, Th, jh, chh, dh, Dh, Rh, kh, gh</strong>. In Urdu script, all of these are written as: consonant + ہ (do chashmii he).<br><br>
+    <strong>Formula:</strong> ب + ہ = بھ (bh) · پ + ہ = پھ (ph) · گ + ہ = گھ (gh) · ک + ہ = کھ (kh) etc.
+  </div>
+
+  <div class="callout">
+    <div class="callout-icon">💡</div>
+    <div><strong>Key distinction (from textbook):</strong> Capital Roman letters like <strong>GH = غ</strong> and <strong>KH = خ</strong> refer to the Arabic letters غین and خے (throat sounds). Lowercase with h like <strong>gh = گھ</strong> and <strong>kh = کھ</strong> are do chashmii he aspirated consonants.</div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">All Aspirated Sounds — With Urdu Script Examples</div>
+  <div class="sound-grid">
+    <div class="sound-card">
+      <div class="sound-roman-big">bh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">بھ</div>
+        <div class="sound-example">ب + ہ · بھالو، بھانجی، بھڑا، بھوڑا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">ph</div>
+      <div class="sound-right">
+        <div class="sound-urdu">پھ</div>
+        <div class="sound-example">پ + ہ · پھال، پھڑنا، پھرتا، پھول، پھن</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">th</div>
+      <div class="sound-right">
+        <div class="sound-urdu">تھ</div>
+        <div class="sound-example">ت + ہ · تھال، تھڑتھرانا، تھکنا، تھوڑا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">Th</div>
+      <div class="sound-right">
+        <div class="sound-urdu">ٹھ</div>
+        <div class="sound-example">ٹ + ہ · ٹھپا، ٹھگ، ٹھوکر · اٹھنا، بیٹھنا، پراٹھا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">jh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">جھ</div>
+        <div class="sound-example">ج + ہ · جھاڑ، جھڑنا، جھنڈا، جھومر</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">chh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">چھ</div>
+        <div class="sound-example">چ + ہ · چھالا، پتھروی، چھوٹی، چھوڑنا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">dh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">دھ</div>
+        <div class="sound-example">د + ہ · دھان، دھبا، دھرتی، وہرنا، سیدھا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">Dh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">ڈھ</div>
+        <div class="sound-example">ڈ + ہ · ڈھال، ڈھونڈنا، ڈھول · مونڈھا، بڑھا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">Rh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">ڑھ</div>
+        <div class="sound-example">ڑ + ہ · پڑھنا، بڑھنا، چڑھنا، گاڑھا · بلب گڑھ، پڑھے</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">kh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">کھ</div>
+        <div class="sound-example">ک + ہ · کھانا، کھروکی، کھولنا، کھیت · پنکھا، سوکھا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big">gh</div>
+      <div class="sound-right">
+        <div class="sound-urdu">گھ</div>
+        <div class="sound-example">گ + ہ · گھر، گھڑی، گھٹیا، گھوڑا · کنگھا، سونگھنا</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big" style="color:var(--accent3);">GH</div>
+      <div class="sound-right">
+        <div class="sound-urdu">غ</div>
+        <div class="sound-example">غین — Arabic · غالب، غریب، غبارہ، غل</div>
+      </div>
+    </div>
+    <div class="sound-card">
+      <div class="sound-roman-big" style="color:var(--accent3);">KH</div>
+      <div class="sound-right">
+        <div class="sound-urdu">خ</div>
+        <div class="sound-example">خے — Arabic · خبر، خراب، خرافات · پنکھے، راکھ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:32px;">10 Exam Words Using دو چشمی ہ (from textbook)</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th><th>Aspirated</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">بھائی</td><td class="roman">bhaai</td><td class="meaning">Brother</td><td><span class="roman">bh = بھ</span></td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">پھول</td><td class="roman">phuul</td><td class="meaning">Flower</td><td><span class="roman">ph = پھ</span></td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">گھر</td><td class="roman">ghar</td><td class="meaning">Home</td><td><span class="roman">gh = گھ</span></td></tr>
+      <tr><td class="num-col">4</td><td class="urdu-text">کھانا</td><td class="roman">khaanaa</td><td class="meaning">Food / To eat</td><td><span class="roman">kh = کھ</span></td></tr>
+      <tr><td class="num-col">5</td><td class="urdu-text">جھیل</td><td class="roman">jhiil</td><td class="meaning">Lake</td><td><span class="roman">jh = جھ</span></td></tr>
+      <tr><td class="num-col">6</td><td class="urdu-text">دھوپ</td><td class="roman">dhuup</td><td class="meaning">Sunshine</td><td><span class="roman">dh = دھ</span></td></tr>
+      <tr><td class="num-col">7</td><td class="urdu-text">پڑھنا</td><td class="roman">paRhnaa</td><td class="meaning">To read/study</td><td><span class="roman">Rh = ڑھ</span></td></tr>
+      <tr><td class="num-col">8</td><td class="urdu-text">تھالی</td><td class="roman">thaalii</td><td class="meaning">Plate</td><td><span class="roman">th = تھ</span></td></tr>
+      <tr><td class="num-col">9</td><td class="urdu-text">چھت</td><td class="roman">chhat</td><td class="meaning">Roof</td><td><span class="roman">chh = چھ</span></td></tr>
+      <tr><td class="num-col">10</td><td class="urdu-text">مجھے</td><td class="roman">mujhe</td><td class="meaning">To me / For me</td><td><span class="roman">jh = جھ</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- LETTER GROUPS — FE, AIN, SUAAD, TOE -->
+<div class="topic-card tc-purple" id="letter-groups">
+  <div class="topic-q-badge">Lessons 2 &amp; 3 · Letter Groups</div>
+  <div class="topic-title-urdu">حروف کے گروہ</div>
+  <div class="topic-title-eng">Urdu Letter Groups — fe, ain, suaad &amp; toe Groups</div>
+
+  <div class="explanation-box">
+    <strong>Why letter groups?</strong> The <em>Hamari Urdu</em> textbook groups letters by their similar shapes. Each group shares a base shape; dots above or below distinguish individual letters. Letters in each group change shape depending on their <strong>position</strong> in a word: <em>initial</em> (beginning), <em>medial</em> (middle), or <em>final</em> (end).
+  </div>
+
+  <!-- FE GROUP -->
+  <div class="section-label">فے سمُوہ / fe Group — ف ق</div>
+  <div class="letter-group-grid">
+    <div class="letter-group-card">
+      <div class="letter-group-title">fe · فے</div>
+      <div class="letter-group-urdu">ف</div>
+      <div class="letter-group-roman">f</div>
+      <div class="letter-group-words">فارسی · فُرّ · فرار · فوج<br>قابِل · قُدرت · قرار · قول</div>
+    </div>
+    <div class="letter-group-card">
+      <div class="letter-group-title">qaaf · قاف</div>
+      <div class="letter-group-urdu">ق</div>
+      <div class="letter-group-roman">q</div>
+      <div class="letter-group-words">قابِل · قدرت · قسمت<br>وَرَق · شوق · شفق</div>
+    </div>
+  </div>
+  <div style="margin-top:16px; background:rgba(255,255,255,0.03); border-radius:14px; padding:20px;">
+    <div class="section-label" style="margin-top:0;">fe Group — Word Examples from Textbook</div>
+    <table class="example-table">
+      <thead><tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th><th>Position</th></tr></thead>
+      <tbody>
+        <tr><td class="num-col">1</td><td class="urdu-text">فارسی فُرّ فرار</td><td class="roman">faarsii, fur, faraar</td><td class="meaning">Persian / Pride / Escape</td><td class="meaning">Initial</td></tr>
+        <tr><td class="num-col">2</td><td class="urdu-text">آفت، دفتر، رفتار</td><td class="roman">aafat, daftar, raftaar</td><td class="meaning">Calamity / Office / Speed</td><td class="meaning">Medial</td></tr>
+        <tr><td class="num-col">3</td><td class="urdu-text">بُرف، حَرف، صاف</td><td class="roman">barf, harf, saaf</td><td class="meaning">Snow / Letter / Clean</td><td class="meaning">Final</td></tr>
+        <tr><td class="num-col">4</td><td class="urdu-text">قابل، قُدرت، قرار</td><td class="roman">qaabil, qudrat, qaraar</td><td class="meaning">Capable / Power / Rest</td><td class="meaning">Initial</td></tr>
+        <tr><td class="num-col">5</td><td class="urdu-text">باقی، تقسیم، وقت</td><td class="roman">baaqi, taqsiim, vaqt</td><td class="meaning">Remaining / Division / Time</td><td class="meaning">Medial</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AIN GROUP -->
+  <div class="section-label" style="margin-top:32px;">عَین سمُوہ / ain Group — ع غ</div>
+  <div class="letter-group-grid">
+    <div class="letter-group-card">
+      <div class="letter-group-title">ain · عَین</div>
+      <div class="letter-group-urdu">ع</div>
+      <div class="letter-group-roman">vowel letter</div>
+      <div class="letter-group-words">عام · عَدَد · عِزّت<br>غالِب · غَدَر · غریب</div>
+    </div>
+    <div class="letter-group-card">
+      <div class="letter-group-title">ghain · غَین</div>
+      <div class="letter-group-urdu">غ</div>
+      <div class="letter-group-roman">GH</div>
+      <div class="letter-group-words">غالب · غبارہ · غریب<br>شمع · منع · نفع · شروع</div>
+    </div>
+  </div>
+  <div style="margin-top:16px; background:rgba(255,255,255,0.03); border-radius:14px; padding:20px;">
+    <div class="section-label" style="margin-top:0;">ain Group — Word Examples from Textbook</div>
+    <table class="example-table">
+      <thead><tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th><th>Position</th></tr></thead>
+      <tbody>
+        <tr><td class="num-col">1</td><td class="urdu-text">عام · عَدَد · عِزّت · عِید · عَوْرت</td><td class="roman">aam, adad, izzat, iid, aurat</td><td class="meaning">Common / Number / Honour / Eid / Woman</td><td class="meaning">Initial ع</td></tr>
+        <tr><td class="num-col">2</td><td class="urdu-text">بَعد · تعداد · جبعلی · شعر · معنی</td><td class="roman">baad, tadaad, jubeli, shir, maani</td><td class="meaning">After / Count / Jubilee / Poetry / Meaning</td><td class="meaning">Medial ع</td></tr>
+        <tr><td class="num-col">3</td><td class="urdu-text">جمع · شمع · منع · نفع · شروع</td><td class="roman">jama, shama, mana, nafa, shuru</td><td class="meaning">Collection / Candle / Forbidden / Profit / Start</td><td class="meaning">Final ع</td></tr>
+        <tr><td class="num-col">4</td><td class="urdu-text">غالِب · غَدَر · غریب · غُزَیل · غُل</td><td class="roman">Ghaalib, GHadar, GHariib, GHazaal, GHul</td><td class="meaning">Ghalib (poet) / Mutiny / Poor / Gazelle / Noise</td><td class="meaning">Initial غ</td></tr>
+        <tr><td class="num-col">5</td><td class="urdu-text">بَغاوَت · مُغَل · نَغمہ · باغی</td><td class="roman">baGHaavat, muGHal, naGHma, baaGHii</td><td class="meaning">Rebellion / Mughal / Melody / Rebel</td><td class="meaning">Medial غ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SUAAD GROUP -->
+  <div class="section-label" style="margin-top:32px;">سواد سمُوہ / suaad Group — ص ض</div>
+  <div class="letter-group-grid">
+    <div class="letter-group-card">
+      <div class="letter-group-title">suaad · صاد</div>
+      <div class="letter-group-urdu">ص</div>
+      <div class="letter-group-roman">s (emphatic)</div>
+      <div class="letter-group-words">صابن · صبا · صبر<br>خاص · فَنس · تشخیص</div>
+    </div>
+    <div class="letter-group-card">
+      <div class="letter-group-title">zuaad · ضاد</div>
+      <div class="letter-group-urdu">ض</div>
+      <div class="letter-group-roman">z (emphatic)</div>
+      <div class="letter-group-words">ضامِن · ضرور · ضِد<br>مریض · فَیض · قرض</div>
+    </div>
+  </div>
+  <div style="margin-top:16px; background:rgba(255,255,255,0.03); border-radius:14px; padding:20px;">
+    <div class="section-label" style="margin-top:0;">suaad Group — Word Examples from Textbook</div>
+    <table class="example-table">
+      <thead><tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="num-col">1</td><td class="urdu-text">صابن · صبا · صبر · صدا · صدور</td><td class="roman">saabun, sabaa, sabr, sadaa, suduur</td><td class="meaning">Soap / Morning breeze / Patience / Voice / Chests</td></tr>
+        <tr><td class="num-col">2</td><td class="urdu-text">ضامِن · ضرور · ضِد · ضرر · ضرورت</td><td class="roman">zaamin, zaruur, zid, zarar, zaruurat</td><td class="meaning">Guarantor / Certainly / Stubbornness / Harm / Need</td></tr>
+        <tr><td class="num-col">3</td><td class="urdu-text">تصویر · اصرار · غُفر · نصیر</td><td class="roman">tasviir, israar, GHufr, nasiir</td><td class="meaning">Picture / Insistence / Forgiveness / Helper</td></tr>
+        <tr><td class="num-col">4</td><td class="urdu-text">خاص · فنس · تشخیص · حریص</td><td class="roman">khaas, fans, tashKHiis, Hariis</td><td class="meaning">Special / Fence / Diagnosis / Greedy</td></tr>
+        <tr><td class="num-col">5</td><td class="urdu-text">مَریض · فَیض · قَرض · فَوض</td><td class="roman">mariiz, faiz, qarz, foz</td><td class="meaning">Patient (sick) / Grace / Debt / Victory</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOE GROUP -->
+  <div class="section-label" style="margin-top:32px;">توے سمُوہ / toe Group — ط ظ</div>
+  <div class="letter-group-grid">
+    <div class="letter-group-card">
+      <div class="letter-group-title">toye · تائے</div>
+      <div class="letter-group-urdu">ط</div>
+      <div class="letter-group-roman">t (emphatic)</div>
+      <div class="letter-group-words">طاقت · طَرح · طَرف<br>وَطن · خطرہ · سَفر</div>
+    </div>
+    <div class="letter-group-card">
+      <div class="letter-group-title">zoe · ظائے</div>
+      <div class="letter-group-urdu">ظ</div>
+      <div class="letter-group-roman">z (emphatic)</div>
+      <div class="letter-group-words">ظالِم · ظَرف · ظَفر<br>لفظ · الفاظ · حِفظ</div>
+    </div>
+  </div>
+  <div style="margin-top:16px; background:rgba(255,255,255,0.03); border-radius:14px; padding:20px;">
+    <div class="section-label" style="margin-top:0;">toe Group — Homophones (same sound, different meaning)</div>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:14px;">Note from the textbook: these words sound the same but are written differently and mean different things:</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-label">With ص suaad</div>
+        <div class="compare-urdu">سَدا (آواز) · اَرض (زمین)</div>
+        <div class="compare-meaning">sadaa = always · arz = earth</div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-label">With ط/ظ toe/zoe</div>
+        <div class="compare-urdu">صدا (آواز) · عَرض (کہنا)</div>
+        <div class="compare-meaning">sadaa = voice/sound · arz = to submit/say</div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-label">With ن nuun</div>
+        <div class="compare-urdu">ظَن (خیال) · نَظر (دیکھنا)</div>
+        <div class="compare-meaning">Zan = opinion · nazar = gaze/vision</div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-label">With ع ain</div>
+        <div class="compare-urdu">گُل (پھول) · غُل (شور)</div>
+        <div class="compare-meaning">gul = flower · GHul = noise/uproar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:20px;">
+    <div class="callout-icon">📌</div>
+    <div><strong>Textbook Tip:</strong> The letters ص، ض، ط، ظ and ع، غ are Arabic letters whose sounds differ from similar-looking Urdu letters. They are pronounced from deeper in the throat/mouth. In everyday spoken Urdu many speakers merge them, but in writing you must spell them correctly.</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  UNIT II  -->
+<!-- ============================================================ -->
+<div class="unit-header" id="unit2">
+  <div class="unit-number unit-u2">II</div>
+  <div class="unit-title-block">
+    <h2>Unit Two</h2>
+    <h3>اضافت · واو عطف · واو معدولہ</h3>
+  </div>
+</div>
+
+<!-- IZAFAT -->
+<div class="topic-card tc-cyan">
+  <div class="topic-q-badge">Lesson 1 · Q3 · 10 Marks</div>
+  <div class="topic-title-urdu">اضافت</div>
+  <div class="topic-title-eng">Izafat — The Possessive Construction</div>
+
+  <div class="explanation-box cyan">
+    <strong>What is اضافت?</strong><br>
+    Izafat (اضافت) is a grammatical construction borrowed from Persian. It connects two nouns to show a <strong>possessive or descriptive relationship</strong> — like "of" in English. It is written as a small "<strong>ے</strong>" (or "-e-") sound between two words.<br><br>
+    <strong>Pattern:</strong> [Noun 1] + ے + [Noun 2] = "[Noun 2] of [Noun 1]"<br>
+    Example: <strong>درد دل</strong> = <em>dard-e-dil</em> = "pain of the heart" (heartache)<br><br>
+    In written Urdu, izafat is often shown with a small zaer (zer) under the first noun's last letter, or by a hyphen in Roman script. In speech it is the "-e-" linking sound.
+  </div>
+
+  <div class="section-label">Izafat Constructions — From Textbook (Page 82)</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو ترکیب</th><th>Roman</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">دردِ دل</td><td class="roman">dard-e-dil</td><td class="meaning">Pain of the heart (heartache)</td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">خوفِ خدا</td><td class="roman">khauf-e-KHuda</td><td class="meaning">Fear of God</td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">شامِ غم</td><td class="roman">shaam-e-GHam</td><td class="meaning">Evening of sorrow</td></tr>
+      <tr><td class="num-col">4</td><td class="urdu-text">آوازِ دوست</td><td class="roman">aawaaz-e-dost</td><td class="meaning">Voice of the friend</td></tr>
+      <tr><td class="num-col">5</td><td class="urdu-text">صدائے دل</td><td class="roman">sadaa-e-dil</td><td class="meaning">Call/Voice of the heart</td></tr>
+      <tr><td class="num-col">6</td><td class="urdu-text">جائے پیدائش</td><td class="roman">jaae-e-paidaaish</td><td class="meaning">Place of birth (birthplace)</td></tr>
+      <tr><td class="num-col">7</td><td class="urdu-text">دریائے گنگا</td><td class="roman">daryaa-e-GHanga</td><td class="meaning">River of the Ganges</td></tr>
+      <tr><td class="num-col">8</td><td class="urdu-text">درجۂ حرارت</td><td class="roman">darja-e-Hararat</td><td class="meaning">Degree of temperature</td></tr>
+      <tr><td class="num-col">9</td><td class="urdu-text">شعبۂ اردو</td><td class="roman">shuba-e-urdu</td><td class="meaning">Department of Urdu</td></tr>
+      <tr><td class="num-col">10</td><td class="urdu-text">ذریعۂ اظہار</td><td class="roman">zariia-e-izhaar</td><td class="meaning">Means of expression</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label" style="margin-top:24px;">More Izafat Phrases — For Practice (from Textbook Exercise)</div>
+  <div style="background:rgba(6,182,212,0.06); border:1px solid rgba(6,182,212,0.2); border-radius:14px; padding:20px; direction:rtl; text-align:right;">
+    <div class="urdu-text" style="font-size:20px; line-height:2.8;">
+      بیماریِ دل ۔ جذبۂ دل ۔ ماہ نو ۔ راہ وفا ۔ آہ بے کس ۔<br>
+      خوبیِ قسمت ۔ سزائے قید ۔ آبروئے وطن ۔ بوئے گل ۔<br>
+      تختِ طاوَس ۔ موجِ دریا ۔ محوِ خیال ۔ بندۂ خدا ۔ قطرۂ خوں
+    </div>
+    <div style="font-size:13px; color:var(--muted); margin-top:10px; direction:ltr; text-align:left;">bimaariy-e-dil · jazbaa-e-dil · maah-e-nau · raah-e-vafaa · aah-e-be-kas · KHuubiy-e-qismat · sazaa-e-qaid · aabruu-e-vatan · buu-e-gul · taKHt-e-taaoos · mauj-e-daryaa · maHv-e-KHayaal · banda-e-KHudaa · qatra-e-KHuun</div>
+  </div>
+
+  <div class="callout cyan" style="margin-top:20px;">
+    <div class="callout-icon">✍️</div>
+    <div><strong>Writing rule:</strong> When the first word ends in ہ or ة, the izafat is written as ۂ (he with hamza). E.g. شعبہ + اردو = شعبۂ اردو (shuba-e-urdu). When it ends in ا or و, izafat sounds like "-e-" or "-ye-": دریا + گنگا = دریائے گنگا.</div>
+  </div>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- VAAO ATF -->
+<div class="topic-card tc-cyan" id="vaao-atf">
+  <div class="topic-q-badge">Lesson 2 · Q4 · 10 Marks</div>
+  <div class="topic-title-urdu">واوِ عطف</div>
+  <div class="topic-title-eng">Vaao Atf — The Connective "And" (و)</div>
+
+  <div class="explanation-box cyan">
+    <strong>What is واو عطف?</strong><br>
+    In Persian and classical Urdu, the letter <strong>و</strong> is used as a short, elegant connector meaning <strong>"and"</strong> between two nouns. This is called <em>vaao-e-atf</em> (عطف = connection/conjunction). It creates compound nouns or paired phrases commonly used in poetry and literary prose.<br><br>
+    Everyday Urdu uses <strong>اور</strong> for "and." Classical/poetic Urdu uses <strong>واو عطف</strong>. The و is pronounced as a light "-o-" or "-u-" sound linking the two words.<br><br>
+    <strong>Pattern:</strong> خاص <strong>و</strong> عام = khaas-o-aam (special and common)
+  </div>
+
+  <div class="section-label">واو عطف Examples — From Textbook (Page 83)</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">خاص و عام</td><td class="roman">khaas-o-aam</td><td class="meaning">Special and Common (everyone)</td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">تروتازہ</td><td class="roman">tar-o-taaza</td><td class="meaning">Fresh and green / Lively</td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">آمدورفت</td><td class="roman">aamad-o-raft</td><td class="meaning">Coming and going / Traffic</td></tr>
+      <tr><td class="num-col">4</td><td class="urdu-text">گل و بلبل</td><td class="roman">gul-o-bulbul</td><td class="meaning">Rose and nightingale (a classic poetic pairing)</td></tr>
+      <tr><td class="num-col">5</td><td class="urdu-text">صبح و شام</td><td class="roman">subh-o-shaam</td><td class="meaning">Morning and evening (all day)</td></tr>
+      <tr><td class="num-col">6</td><td class="urdu-text">دردوغم</td><td class="roman">dard-o-GHam</td><td class="meaning">Pain and sorrow</td></tr>
+    </tbody>
+  </table>
+  <div class="callout cyan" style="margin-top:20px;">
+    <div class="callout-icon">✍️</div>
+    <div><strong>How to write:</strong> Write the first word → then و (joined, no space before) → then second word. Example: <span class="urdu-text" style="font-size:20px; display:inline;">دل و جان</span> (dil-o-jaan = heart and soul)</div>
+  </div>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- VAAO MADULA -->
+<div class="topic-card tc-cyan" id="vaao-madula">
+  <div class="topic-q-badge">Lesson 2 · Q5 · 10 Marks</div>
+  <div class="topic-title-urdu">واوِ معدُولہ</div>
+  <div class="topic-title-eng">Vaao Madula — The Silent Wao</div>
+
+  <div class="explanation-box cyan">
+    <strong>What is واو معدولہ?</strong><br>
+    "Madula" (معدولہ) means <em>deviated</em> or <em>suppressed</em>. The <strong>واو معدولہ</strong> is a <strong>و</strong> written in a word but <em>not fully pronounced</em> — its vowel sound is swallowed or greatly reduced.<br><br>
+    It occurs mainly in Arabic-Persian borrowed words where <strong>خ</strong> is followed by <strong>و</strong>. The و is present in writing but the full "aw/o" sound is not given. These are exception words you must memorise.<br><br>
+    <strong>Examples from textbook (page 83):</strong> خواب، خواجہ، خود، خوش، خورشید، دسترخوان<br>
+    All start with <strong>خو</strong> — the و after خ in this group behaves as vaao madula.
+  </div>
+
+  <div class="section-label">واو معدولہ Words — From Textbook</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو</th><th>Written As</th><th>Pronounced</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">خواب</td><td class="roman">kh-w-aa-b</td><td class="roman">khwāb</td><td class="meaning">Dream</td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">خواجہ</td><td class="roman">kh-w-aa-j-ah</td><td class="roman">khwāja</td><td class="meaning">Lord / Master (title)</td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">خود</td><td class="roman">kh-w-d</td><td class="roman">khud</td><td class="meaning">Self / Oneself</td></tr>
+      <tr><td class="num-col">4</td><td class="urdu-text">خوش</td><td class="roman">kh-w-sh</td><td class="roman">khush</td><td class="meaning">Happy</td></tr>
+      <tr><td class="num-col">5</td><td class="urdu-text">خورشید</td><td class="roman">kh-w-r-sh-ii-d</td><td class="roman">khurshiid</td><td class="meaning">The Sun</td></tr>
+      <tr><td class="num-col">6</td><td class="urdu-text">دسترخوان</td><td class="roman">dastar-kh-w-aan</td><td class="roman">dastarkHwaan</td><td class="meaning">Dining cloth / Table spread</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green" style="margin-top:20px;">
+    <div class="callout-icon">📌</div>
+    <div><strong>Memory tip:</strong> All واو معدولہ words in common use start with <strong>خو</strong>. The و after خ in this group is mostly silent. Just memorise: خواب · خواجہ · خود · خوش · خورشید · دسترخوان</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  UNIT III  -->
+<!-- ============================================================ -->
+<div class="unit-header" id="unit3">
+  <div class="unit-number unit-u3">III</div>
+  <div class="unit-title-block">
+    <h2>Unit Three</h2>
+    <h3>الف مقصورہ · کھڑا زیر · تنوین</h3>
+  </div>
+</div>
+
+<!-- ALIF MAQSURA -->
+<div class="topic-card tc-pink">
+  <div class="topic-q-badge">Lesson 1 · Q6 · 10 Marks</div>
+  <div class="topic-title-urdu">الف مقصورہ</div>
+  <div class="topic-title-eng">Alif Maqsura — The Shortened Alif</div>
+
+  <div class="explanation-box pink">
+    <strong>What is الف مقصورہ?</strong><br>
+    "Maqsura" (مقصورہ) means <em>shortened</em>. It is a form of Alif that is written as <strong>ی</strong> (without dots) at the <strong>end of a word</strong>, but pronounced as a long <strong>"ā"</strong> sound — exactly like the regular Alif.<br><br>
+    It always carries the small superscript mark <strong>ٰ</strong> (madd/khara zabar) above it to signal that this ی is actually an "ā" sound, not an "ee/ii" sound.<br><br>
+    <strong>Rule:</strong> The mark ٰ above ی at the end of a word = alif maqsura = pronounce "ā"<br>
+    These words are all borrowed from Arabic.
+  </div>
+
+  <div class="section-label">الف مقصورہ Words — From Textbook (Page 84)</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th><th>Type</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">اَدنیٰ</td><td class="roman">adnaa</td><td class="meaning">Lower / Inferior</td><td class="meaning">Arabic adjective</td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">اَعلیٰ</td><td class="roman">alaa</td><td class="meaning">Higher / Superior / Supreme</td><td class="meaning">Arabic adjective</td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">دَعویٰ</td><td class="roman">daavaa</td><td class="meaning">Claim / Lawsuit</td><td class="meaning">Arabic noun</td></tr>
+      <tr><td class="num-col">4</td><td class="urdu-text">فَتویٰ</td><td class="roman">fatvaa</td><td class="meaning">Religious verdict/ruling</td><td class="meaning">Arabic noun</td></tr>
+      <tr><td class="num-col">5</td><td class="urdu-text">موسیٰ</td><td class="roman">Muusaa</td><td class="meaning">Moses (Prophet)</td><td class="meaning">Prophet's name</td></tr>
+      <tr><td class="num-col">6</td><td class="urdu-text">عیسیٰ</td><td class="roman">Iisaa</td><td class="meaning">Jesus (Prophet)</td><td class="meaning">Prophet's name</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label" style="margin-top:24px;">کھڑا زیر / Khra Zer — From Textbook (Page 84)</div>
+  <div class="explanation-box pink">
+    <strong>What is کھڑا زیر?</strong><br>
+    Khra Zer (کھڑا زیر) is a special diacritical mark used in some Arabic words. It looks like a small vertical line below a letter (resembling a standing zaer). It marks an <strong>ʿain-like</strong> sound or long vowel in certain religious/classical words.<br><br>
+    Examples from the textbook: رَحمٰن · اَللّٰہ · اِبراہیم
+  </div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">رَحمٰن</td><td class="roman">Rahmaan</td><td class="meaning">The Merciful (name of Allah)</td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">لِہذا</td><td class="roman">lihaazaa</td><td class="meaning">Therefore</td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">زَکٰوة</td><td class="roman">zakaat</td><td class="meaning">Islamic alms-giving</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- TANWIN -->
+<div class="topic-card tc-pink" id="tanwin">
+  <div class="topic-q-badge">Lesson 2 · Q7 · 10 Marks</div>
+  <div class="topic-title-urdu">تنوین (دو زَبر)</div>
+  <div class="topic-title-eng">Tanwin — The Double Zabar (-an ending)</div>
+
+  <div class="explanation-box pink">
+    <strong>What is تنوین?</strong><br>
+    "Tanwin" (تنوین) comes from Arabic grammar. It is the double zabar mark ( ً ) placed above the last letter of a word, making it end with an <strong>"-an"</strong> sound. In Urdu, tanwin words are always Arabic adverbs that are used as intensifiers or qualifiers in sentences.<br><br>
+    <strong>Symbol:</strong> Two zabar marks ( ً ) placed above the final letter<br>
+    <strong>Pronunciation:</strong> The word gains an "-an" ending sound<br>
+    <strong>Function:</strong> Often used as adverbs meaning "immediately," "certainly," "approximately," etc.
+  </div>
+
+  <div class="section-label">تنوین Words — From Textbook (Page 85)</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th class="rtl-col">اردو</th><th>Roman</th><th>Meaning</th><th>Sentence use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-col">1</td><td class="urdu-text">فوراً</td><td class="roman">fauran</td><td class="meaning">Immediately / At once</td><td class="meaning">وہ فوراً آئے — He came immediately</td></tr>
+      <tr><td class="num-col">2</td><td class="urdu-text">اتفاقاً</td><td class="roman">ittifaaqan</td><td class="meaning">By chance / Coincidentally</td><td class="meaning">اتفاقاً ملاقات ہوئی — Met by chance</td></tr>
+      <tr><td class="num-col">3</td><td class="urdu-text">تقریباً</td><td class="roman">taqriiban</td><td class="meaning">Approximately / Nearly</td><td class="meaning">تقریباً سو لوگ — About 100 people</td></tr>
+      <tr><td class="num-col">4</td><td class="urdu-text">عموماً</td><td class="roman">umuuman</td><td class="meaning">Generally / Usually</td><td class="meaning">عموماً ایسا ہوتا ہے — Usually this happens</td></tr>
+      <tr><td class="num-col">5</td><td class="urdu-text">مثلاً</td><td class="roman">masalan</td><td class="meaning">For example</td><td class="meaning">مثلاً یہ لفظ — For example, this word</td></tr>
+      <tr><td class="num-col">6</td><td class="urdu-text">یقیناً</td><td class="roman">yaqiinan</td><td class="meaning">Certainly / Surely</td><td class="meaning">یقیناً وہ آئیں گے — He will certainly come</td></tr>
+      <tr><td class="num-col">7</td><td class="urdu-text">نجبوراً</td><td class="roman">majburan</td><td class="meaning">Compulsorily / Helplessly</td><td class="meaning">مجبوراً جانا پڑا — Had to go helplessly</td></tr>
+      <tr><td class="num-col">8</td><td class="urdu-text">غالباً</td><td class="roman">GHaaliban</td><td class="meaning">Probably / Most likely</td><td class="meaning">غالباً وہ جانتے ہیں — He probably knows</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top:20px;">
+    <div class="callout-icon">🧠</div>
+    <div><strong>Memory shortcut:</strong> Tanwin words always end in the double zabar ( ً ) and always have "-an" added when spoken. They are all Arabic words functioning as adverbs in Urdu. Think: فوراً = "immediately" · تقریباً = "approximately" · مثلاً = "for example."</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  UNIT IV  -->
+<!-- ============================================================ -->
+<div class="unit-header" id="unit4">
+  <div class="unit-number unit-u4">IV</div>
+  <div class="unit-title-block">
+    <h2>Unit Four</h2>
+    <h3>الف لام · Transliteration</h3>
+  </div>
+</div>
+
+<!-- ALIF LAM -->
+<div class="topic-card tc-green">
+  <div class="topic-q-badge">Lesson 1 · Q8 · 10 Marks</div>
+  <div class="topic-title-urdu">الف لام کا استعمال</div>
+  <div class="topic-title-eng">Alif-Lam — The Definite Article in Compound Words</div>
+
+  <div class="explanation-box green">
+    <strong>What is الف لام?</strong><br>
+    In Arabic, <strong>ال</strong> (alif + lam) is the definite article meaning "the." When Arabic compound words are used in Urdu, this ال becomes part of the word. There are two types:<br><br>
+    <strong>1. لام قمری (Lam Qamari):</strong> The "l" of ال is pronounced. This happens when ال comes before certain letters (called "moon letters"). Example: بالکل (bilkul = entirely), القصہ (al-qissa = the story).<br><br>
+    <strong>2. لام شمسی (Lam Shamsi):</strong> The "l" of ال is <em>not</em> pronounced; instead the following letter doubles. This happens with "sun letters" (ت، ث، د، ذ، ر، ز، س، ش، ص، ض، ط، ظ، ل، ن). Example: نظام الدین → pronounced nizaamu<strong>d</strong>-diin (the ل is replaced by doubling the د).
+  </div>
+
+  <div class="section-label">Alif-Lam Compound Words — From Textbook (Page 86)</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>#</th><th>Roman</th><th class="rtl-col">اردو</th><th>Meaning &amp; Type</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num-col">1</td>
+        <td><span class="roman">bilkul</span></td>
+        <td class="urdu-text">بالکل</td>
+        <td class="meaning">Absolutely / Entirely — ب + ال + کل → Lam Qamari (ل pronounced)</td>
+      </tr>
+      <tr>
+        <td class="num-col">2</td>
+        <td><span class="roman">alqissa</span></td>
+        <td class="urdu-text">القصہ</td>
+        <td class="meaning">The Story — ال + قصہ → Lam Qamari (ل pronounced)</td>
+      </tr>
+      <tr>
+        <td class="num-col">3</td>
+        <td><span class="roman">zulfiqaar</span></td>
+        <td class="urdu-text">ذوالفقار</td>
+        <td class="meaning">Zulfiqar — ذو + الفقار (sword of Imam Ali)</td>
+      </tr>
+      <tr>
+        <td class="num-col">4</td>
+        <td><span class="roman">nizaamuddiin</span></td>
+        <td class="urdu-text">نظام الدین</td>
+        <td class="meaning">Nizamuddin — نظام + الدین → Lam Shamsi (ل silent, د doubles)</td>
+      </tr>
+      <tr>
+        <td class="num-col">5</td>
+        <td><span class="roman">daarus-saltanat</span></td>
+        <td class="urdu-text">دارالسلطنت</td>
+        <td class="meaning">Capital city — دار + السلطنت → Lam Shamsi</td>
+      </tr>
+      <tr>
+        <td class="num-col">6</td>
+        <td><span class="roman">daaarul-Hukuumat</span></td>
+        <td class="urdu-text">دارالحکومت</td>
+        <td class="meaning">Seat of government</td>
+      </tr>
+      <tr>
+        <td class="num-col">7</td>
+        <td><span class="roman">bainal-aqvaami</span></td>
+        <td class="urdu-text">بین الاقوامی</td>
+        <td class="meaning">International</td>
+      </tr>
+      <tr>
+        <td class="num-col">8</td>
+        <td><span class="roman">abul-kalaam</span></td>
+        <td class="urdu-text">ابوالکلام</td>
+        <td class="meaning">Father of speech (name) — Maulana Abul Kalam Azad</td>
+      </tr>
+      <tr>
+        <td class="num-col">9</td>
+        <td><span class="roman">shaykhu-l-jaamiaa</span></td>
+        <td class="urdu-text">شیخ الجامعہ</td>
+        <td class="meaning">Vice Chancellor (of university)</td>
+      </tr>
+      <tr>
+        <td class="num-col">10</td>
+        <td><span class="roman">Hattaa-l-imkaan</span></td>
+        <td class="urdu-text">حتی الامکان</td>
+        <td class="meaning">As much as possible</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout green" style="margin-top:20px;">
+    <div class="callout-icon">🏛️</div>
+    <div><strong>Exam tip:</strong> For Q8 the examiner usually asks you to write 5 alif-lam compound words. Memorise the first 5-6 rows above. Pay attention to whether it is written as one word (دارالسلطنت) or two words (نظام الدین). Both forms appear in the textbook.</div>
+  </div>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- TRANSLITERATION -->
+<div class="topic-card tc-green" id="transliteration">
+  <div class="topic-q-badge">Lesson 2 · Q9 · 10 Marks</div>
+  <div class="topic-title-urdu">رومن / دیوناگری</div>
+  <div class="topic-title-eng">Transliteration — Roman &amp; Devnagri</div>
+
+  <div class="explanation-box green">
+    <strong>What is transliteration?</strong><br>
+    Transliteration means writing a word from one script into another script, keeping the <em>sound</em> the same. You are NOT translating the meaning — only the script changes. The textbook uses Roman transliteration throughout to help learners.<br><br>
+    <strong>Roman Transliteration:</strong> Writing Urdu sounds using English alphabet letters.<br>
+    <strong>Devnagri Transliteration:</strong> Writing Urdu sounds using Hindi script.<br><br>
+    Challenge: Urdu has sounds that do not exist in Hindi/English (ق، خ، ع، غ، ح، ط، ظ، ص، ض) so we use capital letters or dots to indicate them.
+  </div>
+
+  <div class="section-label">Transliteration Key — Urdu → Roman → Devnagri</div>
+  <table class="example-table">
+    <thead>
+      <tr><th>Urdu Letter</th><th>Roman</th><th>Devnagri</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="urdu-text" style="font-size:20px;">ق</td><td class="roman">q</td><td style="font-size:16px; color:var(--accent4);">क़</td><td class="meaning">قلم → qalam → क़लम</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">خ</td><td class="roman">KH</td><td style="font-size:16px; color:var(--accent4);">ख़</td><td class="meaning">خبر → KHabar → ख़बर</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">غ</td><td class="roman">GH</td><td style="font-size:16px; color:var(--accent4);">ग़</td><td class="meaning">غریب → GHariib → ग़रीब</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ع</td><td class="roman">' or omit</td><td style="font-size:16px; color:var(--accent4);">अ</td><td class="meaning">عشق → 'ishq → इश्क़</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ح</td><td class="roman">H</td><td style="font-size:16px; color:var(--accent4);">ह</td><td class="meaning">حال → Haal → हाल</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ٹ</td><td class="roman">T</td><td style="font-size:16px; color:var(--accent4);">ट</td><td class="meaning">ٹوپی → Topii → टोपी</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ڈ</td><td class="roman">D</td><td style="font-size:16px; color:var(--accent4);">ड</td><td class="meaning">ڈاکٹر → Daaktar → डाक्टर</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ڑ</td><td class="roman">R</td><td style="font-size:16px; color:var(--accent4);">ड़</td><td class="meaning">پڑھنا → paRhnaa → पड़ना</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ص</td><td class="roman">s</td><td style="font-size:16px; color:var(--accent4);">स</td><td class="meaning">صبا → sabaa → सबा</td></tr>
+      <tr><td class="urdu-text" style="font-size:20px;">ط</td><td class="roman">t</td><td style="font-size:16px; color:var(--accent4);">त</td><td class="meaning">طاقت → taaqat → ताकत</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout cyan" style="margin-top:20px;">
+    <div class="callout-icon">📝</div>
+    <div><strong>For the exam:</strong> Q9 shows 5 Urdu words and asks you to write them in Roman or Devnagri. Practice reading each word aloud and writing what you hear. For special Arabic sounds (ق، خ، غ etc.) always use the capital letter convention from the textbook.</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  UNIT V  -->
+<!-- ============================================================ -->
+<div class="unit-header" id="unit5">
+  <div class="unit-number unit-u5">V</div>
+  <div class="unit-title-block">
+    <h2>Unit Five</h2>
+    <h3>رموزاوقاف · اختصارات · گنتی</h3>
+  </div>
+</div>
+
+<!-- PUNCTUATION -->
+<div class="topic-card tc-gold">
+  <div class="topic-q-badge">Lesson 1 · Q10 · 10 Marks</div>
+  <div class="topic-title-urdu">رموزاوقاف</div>
+  <div class="topic-title-eng">Ramuz-e-Auqaf — Urdu Punctuation Marks</div>
+
+  <div class="explanation-box gold">
+    <strong>What are رموزاوقاف?</strong><br>
+    "Rumuuz" = symbols/signs. "Auqaf" = pauses/stops. Together: signs that indicate pause and structure in writing. The textbook (page 88) lists all official Urdu punctuation marks with their Urdu names. You must know both the <strong>symbol</strong> and the <strong>Urdu name</strong>.<br><br>
+    Note: Some symbols are mirrored from English because Urdu is written right-to-left.
+  </div>
+
+  <div class="section-label">All 8 Punctuation Marks — From Textbook (Page 88)</div>
+
+  <div class="punc-row header">
+    <div class="punc-cell" style="color:var(--muted); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">Symbol</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">Urdu Name</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">English Name</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">Use</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol">۔</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">ختمہ</span><br><span style="color:var(--muted); font-size:12px;">KHatma</span></div>
+    <div class="punc-cell">Full Stop / Period</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">End of a complete sentence ۔</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol">،</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">سکتہ</span><br><span style="color:var(--muted); font-size:12px;">Sakta</span></div>
+    <div class="punc-cell">Comma</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">Short pause within a sentence ، (mirrored comma)</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol">؛</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">وقفہ</span><br><span style="color:var(--muted); font-size:12px;">Vaqfa</span></div>
+    <div class="punc-cell">Semi-colon</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">Medium pause between related clauses ؛</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol" style="font-family:'Noto Sans', sans-serif; font-size:20px;">" "</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">واوین</span><br><span style="color:var(--muted); font-size:12px;">Vaavain</span></div>
+    <div class="punc-cell">Quotation Marks / Inverted Comma</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">Around quoted speech or titles " "</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol" style="font-family:'Noto Sans', sans-serif; font-size:20px;">:</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">رابطہ</span><br><span style="color:var(--muted); font-size:12px;">Rabita</span></div>
+    <div class="punc-cell">Colon</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">Before a list or explanation : (same as English)</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol">؟</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">سوالیہ نشان</span><br><span style="color:var(--muted); font-size:12px;">Savaaliya Nishaan</span></div>
+    <div class="punc-cell">Question Mark</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">End of a question ؟ (mirror of English ?)</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol" style="font-family:'Noto Sans', sans-serif; font-size:22px;">!</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">نشانِ ندائیہ</span><br><span style="color:var(--muted); font-size:12px;">Nishaan-e-Nadaaiya</span></div>
+    <div class="punc-cell">Mark of Exclamation</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">Surprise, strong emotion, or address ! (same as English)</div>
+  </div>
+
+  <div class="punc-row">
+    <div class="punc-symbol" style="font-family:'Noto Sans', sans-serif; font-size:22px;">( )</div>
+    <div class="punc-cell"><span class="urdu-text" style="font-size:18px;">قوسین</span><br><span style="color:var(--muted); font-size:12px;">Qausain</span></div>
+    <div class="punc-cell">Parentheses / Brackets</div>
+    <div class="punc-cell" style="color:var(--muted); font-size:13px;">Extra information in a sentence ( ) (same as English)</div>
+  </div>
+
+  <div class="callout gold" style="margin-top:20px;">
+    <div class="callout-icon">⭐</div>
+    <div><strong>Memory Tricks (from textbook names):</strong><br>
+    <strong>ختمہ</strong> = khatam (finish) → Full Stop ۔ &nbsp; | &nbsp;
+    <strong>سکتہ</strong> = sakta (slight pause) → Comma ، <br>
+    <strong>وقفہ</strong> = vaqfa (pause) → Semi-colon ؛ &nbsp; | &nbsp;
+    <strong>واوین</strong> = two waws → Quotation marks " " <br>
+    <strong>رابطہ</strong> = connection → Colon : &nbsp; | &nbsp;
+    <strong>سوالیہ</strong> = sawaal (question) → Question mark ؟ <br>
+    <strong>ندائیہ</strong> = nadaa (call/address) → Exclamation ! &nbsp; | &nbsp;
+    <strong>قوسین</strong> = two arcs → Brackets ( )
+    </div>
+  </div>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- ABBREVIATIONS -->
+<div class="topic-card tc-gold" id="abbreviations">
+  <div class="topic-q-badge">Lesson 1 · Q11 · 10 Marks</div>
+  <div class="topic-title-urdu">اختصارات</div>
+  <div class="topic-title-eng">Ikhtisaraat — Abbreviations in Urdu</div>
+
+  <div class="explanation-box gold">
+    <strong>What are اختصارات?</strong><br>
+    "Ikhtisaraat" means abbreviations — short symbols placed after names or dates to convey information concisely. The textbook (pages 88–89) lists abbreviations used in religious, literary, and date contexts. You must know the symbol and what it stands for.
+  </div>
+
+  <div class="abbrev-grid">
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol">ﷺ</div>
+        <div class="abbrev-label">Symbol</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>For Prophet Muhammad ﷺ</h4>
+        <p>Written after the name of the Prophet. Stands for <em>Sallallahu Alayhi Wa Sallam</em> (Peace and blessings be upon him).</p>
+        <div class="abbrev-urdu">صلی اللہ علیہ وسلم</div>
+      </div>
+    </div>
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol">ؓ</div>
+        <div class="abbrev-label">Symbol</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>For Companions of the Prophet (Sahaaba)</h4>
+        <p>Written after names of the Prophet's Companions. Stands for <em>Radi Allahu Anhu/Anha</em> (May Allah be pleased with him/her).</p>
+        <div class="abbrev-urdu">رضی اللہ عنہ / عنہا</div>
+      </div>
+    </div>
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol">ؒ</div>
+        <div class="abbrev-label">Symbol</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>For Muslim Deceased Saints</h4>
+        <p>Written after names of deceased Muslim scholars/saints. Stands for <em>Rahmatullah Alayhi</em> (May Allah have mercy on him).</p>
+        <div class="abbrev-urdu">رحمۃ اللہ علیہ</div>
+      </div>
+    </div>
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol" style="font-size:20px;">تخلص</div>
+        <div class="abbrev-label">Symbol</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>Takhallus — Poet's Pen Name</h4>
+        <p>In Urdu poetry, a poet's <em>takhallus</em> (pen name) is indicated before writing the name. Example: Mirza Asadullah Beg Khan, تخلص: غالب</p>
+        <div class="abbrev-urdu">تخلص کا نشان</div>
+      </div>
+    </div>
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol">؎</div>
+        <div class="abbrev-label">Symbol</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>Before Writing a Verse (Sher)</h4>
+        <p>The symbol ؎ (alamat-e-sher) is placed before a quoted poetic verse in prose to signal that a couplet follows.</p>
+        <div class="abbrev-urdu">علامتِ شعر</div>
+      </div>
+    </div>
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol" style="font-size:20px;">ھ</div>
+        <div class="abbrev-label">Symbol</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>Hijri Year (ہجری)</h4>
+        <p>Written after a year number to indicate the Islamic/Hijri calendar year. Example: ۱۴۴۵ ھ = Year 1445 Hijri. Stands for ہجری.</p>
+        <div class="abbrev-urdu">ہجری کیلنڈر کے وَرش کا سوچک — ۱۵۰۰ ھ = ؁</div>
+      </div>
+    </div>
+
+    <div class="abbrev-card">
+      <div class="abbrev-symbol-block">
+        <div class="abbrev-symbol" style="font-size:16px; color:var(--gold);">سن (یعنی)</div>
+        <div class="abbrev-label">Christian Year</div>
+      </div>
+      <div class="abbrev-info">
+        <h4>Christian / Common Era Year</h4>
+        <p>Written for the Christian calendar (Isvi year). The abbreviation ء or سن after a year number indicates Common Era. Example: ۲۰۲۴ء = year 2024 CE.</p>
+        <div class="abbrev-urdu">اِسوی کیلنڈر کے وَرش کا سوچک</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout gold" style="margin-top:24px;">
+    <div class="callout-icon">📖</div>
+    <div>
+      <strong>Quick Summary Table:</strong><br>
+      <table style="width:100%; margin-top:10px; border-collapse:collapse; font-size:14px;">
+        <tr style="color:var(--muted); border-bottom:1px solid rgba(255,255,255,0.1);">
+          <td style="padding:8px 0; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Symbol</td>
+          <td style="padding:8px; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Used For</td>
+          <td style="padding:8px 0; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Full Form</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:10px 0;"><span style="font-family:'Noto Nastaliq Urdu',serif; font-size:18px; color:var(--gold);">ﷺ</span></td>
+          <td style="padding:10px;">Prophet Muhammad ﷺ</td>
+          <td style="padding:10px; color:var(--muted);">صلی اللہ علیہ وسلم</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:10px 0;"><span style="font-family:'Noto Nastaliq Urdu',serif; font-size:18px; color:var(--gold);">ؓ</span></td>
+          <td style="padding:10px;">Companions (Sahaba)</td>
+          <td style="padding:10px; color:var(--muted);">رضی اللہ عنہ</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:10px 0;"><span style="font-family:'Noto Nastaliq Urdu',serif; font-size:18px; color:var(--gold);">ؒ</span></td>
+          <td style="padding:10px;">Muslim Saints</td>
+          <td style="padding:10px; color:var(--muted);">رحمۃ اللہ علیہ</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:10px 0;"><span style="font-family:'Noto Nastaliq Urdu',serif; font-size:18px; color:var(--gold);">ھ</span></td>
+          <td style="padding:10px;">Hijri year</td>
+          <td style="padding:10px; color:var(--muted);">ہجری</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:10px 0;"><span style="font-family:'Noto Nastaliq Urdu',serif; font-size:18px; color:var(--gold);">تخلص</span></td>
+          <td style="padding:10px;">Poet's pen name</td>
+          <td style="padding:10px; color:var(--muted);">تخلص کا نشان</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 0;"><span style="font-family:'Noto Nastaliq Urdu',serif; font-size:18px; color:var(--gold);">؎</span></td>
+          <td style="padding:10px;">Before a verse</td>
+          <td style="padding:10px; color:var(--muted);">علامتِ شعر</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="topic-divider"></div>
+
+<!-- NUMERALS -->
+<div class="topic-card tc-gold" id="numerals">
+  <div class="topic-q-badge">Lesson 1 · Numerals · گنتی</div>
+  <div class="topic-title-urdu">گنتی</div>
+  <div class="topic-title-eng">Urdu Numerals 1–10 — From Textbook (Page 90)</div>
+
+  <div class="explanation-box gold">
+    <strong>Urdu Numerals:</strong> Urdu uses its own numeral system (Arabic-Indic numerals) which are different from the Western (European) Arabic numerals (1, 2, 3…). You must be able to recognise and write all Urdu numbers. They appear in dates, lists, and text throughout the exam.
+  </div>
+
+  <div class="num-grid">
+    <div class="num-card">
+      <div class="num-int">1</div>
+      <div class="num-arabic">۱</div>
+      <div class="num-urdu">ایک</div>
+      <div class="num-roman">ek</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">2</div>
+      <div class="num-arabic">۲</div>
+      <div class="num-urdu">دو</div>
+      <div class="num-roman">do</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">3</div>
+      <div class="num-arabic">۳</div>
+      <div class="num-urdu">تین</div>
+      <div class="num-roman">tiin</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">4</div>
+      <div class="num-arabic">۴</div>
+      <div class="num-urdu">چار</div>
+      <div class="num-roman">chaar</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">5</div>
+      <div class="num-arabic">۵</div>
+      <div class="num-urdu">پانچ</div>
+      <div class="num-roman">paanch</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">6</div>
+      <div class="num-arabic">۶</div>
+      <div class="num-urdu">چھے</div>
+      <div class="num-roman">chhae</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">7</div>
+      <div class="num-arabic">۷</div>
+      <div class="num-urdu">سات</div>
+      <div class="num-roman">saat</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">8</div>
+      <div class="num-arabic">۸</div>
+      <div class="num-urdu">آٹھ</div>
+      <div class="num-roman">aaTh</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">9</div>
+      <div class="num-arabic">۹</div>
+      <div class="num-urdu">نو</div>
+      <div class="num-roman">nau</div>
+    </div>
+    <div class="num-card">
+      <div class="num-int">10</div>
+      <div class="num-arabic">۱۰</div>
+      <div class="num-urdu">دس</div>
+      <div class="num-roman">das</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  READING PASSAGES  -->
+<!-- ============================================================ -->
+<div class="unit-header" id="reading">
+  <div class="unit-number" style="background: linear-gradient(135deg, #b45309, #fbbf24); font-size:18px;">📖</div>
+  <div class="unit-title-block">
+    <h2>Reading Passages</h2>
+    <h3>Poems &amp; Prose from the Textbook</h3>
+  </div>
+</div>
+
+<!-- GARM KA MOUSAM -->
+<div class="reading-section">
+  <div class="reading-header">Exercise Passage · Unit I · Page 66</div>
+  <div class="reading-title">گرمی کا موسم — Garmi Ka Mausam (Summer Season)</div>
+  <div class="poem-block">
+    <div class="poem-line">مئی کا آن پہنچا ہے موسم</div>
+    <div class="poem-line">بَہا چوٹی سے ایڑی تک پسینا</div>
+    <div class="poem-line">نَچے بارہ تو سورج سَر پَہ آیا</div>
+    <div class="poem-line">ہوا پیروں تلے پوشیدہ سایہ</div>
+    <div class="poem-line">بجلی لُو اور تَواکے کی پڑی دھوپ</div>
+    <div class="poem-line">لَپٹ ہے آگ کی گویا کڑی دھوپ</div>
+    <div class="poem-line">پرندے اُڑ کے ہیں پانی پَر گِرتے</div>
+    <div class="poem-line">بُجندے بھی ہیں گھبرائے سے پھِرتے</div>
+  </div>
+</div>
+
+<!-- BAHAR KA MOUSAM -->
+<div class="reading-section">
+  <div class="reading-header">Exercise Passage · Unit I · Page 68</div>
+  <div class="reading-title">بہار کا موسم — Bahaar Ka Mausam (Spring Season)</div>
+  <div class="poem-block">
+    <div class="poem-line">نئی چُھپیاں وہ چمکنے لگیں</div>
+    <div class="poem-line">وہ کنبل کنبل کے کلیاں مَہکنے لگیں</div>
+    <div class="poem-line">وہ پھولی چنبیلی، کِھلا موگرا</div>
+    <div class="poem-line">کِھلی چاندنی باغ میں جا بجا</div>
+    <div class="poem-line">گریں پھول پَر شہد کی مَنگسیاں</div>
+    <div class="poem-line">وہ چتکوں سے چَہکنے لگیں ٹہنیاں</div>
+    <div class="poem-line">وہ گدرائے پَھل، رنگ لانے لگے</div>
+    <div class="poem-line">انار اپنا جوبَن دِکھانے لگے</div>
+  </div>
+</div>
+
+<!-- DUKH SUKH -->
+<div class="reading-section">
+  <div class="reading-header">Exercise Poem · Unit II · Pages 71–72</div>
+  <div class="reading-title">دُکھ سُکھ — Dukh Sukh (Joy and Sorrow) — مولانا حالی</div>
+  <div class="poem-block">
+    <div class="poem-title" style="font-size:22px; color:var(--muted);">Roman: dukh sukh</div>
+    <div class="poem-line">دُکھ سے یہاں کے گھبرانا کیا</div>
+    <div class="poem-line">سُکھ پَہ یہاں کے اِترانا کیا</div>
+    <div class="poem-line">ہیں دو دِن کے سَب بہلاوے</div>
+    <div class="poem-line">آگے چَل کر ہیں پَچھتاوے</div>
+    <div class="poem-line">آج ہے پانا کَل ہے کھونا</div>
+    <div class="poem-line">آج ہے ہنسنا کَل ہے رونا</div>
+    <div class="poem-line">ہار کبھی اور جیت کبھی ہے</div>
+    <div class="poem-line">اِس نگری کی ریت یہی ہے</div>
+    <div class="poem-line">یوں کوئی دِن دُکھ پایا تو کیا</div>
+    <div class="poem-line">اور کوئی دَم سُکھ پایا تو کیا</div>
+    <div class="poem-author">— مولانا حالی (Maulana Hali)</div>
+  </div>
+</div>
+
+<!-- NASIR KAZMI -->
+<div class="reading-section">
+  <div class="reading-header">Exercise Poem · Unit II · Page 77</div>
+  <div class="reading-title">ناصر کاظمی — Nasir Kazmi (unnamed poem)</div>
+  <div class="poem-block">
+    <div class="poem-line">دِل میں اِک لہری اُٹھی نے ابھی</div>
+    <div class="poem-line">کوئی تازہ ہوا چَلی ہے ابھی</div>
+    <div class="poem-line">مجری دُنیا میں جی نہیں لگتا</div>
+    <div class="poem-line">جانے کِس چیز کی گی ہے ابھی</div>
+    <div class="poem-line">یاد کے بے نشاں جزیروں سے</div>
+    <div class="poem-line">تیری آواز آ رہی ہے ابھی</div>
+    <div class="poem-line">وقت آچھا بھی آئے گا ناصر</div>
+    <div class="poem-line">غم نہ کر زندگی پڑی ہے ابھی</div>
+    <div class="poem-author">— ناصر کاظمی (Nasir Kazmi)</div>
+  </div>
+</div>
+
+<!-- GHALIB BIOGRAPHY PASSAGE -->
+<div class="reading-section">
+  <div class="reading-header">Reading Passage · Unit II · Page 87 · Biography</div>
+  <div class="reading-title">مرزا غالب — Mirza GHaalib (Biography Passage)</div>
+  <div class="prose-block">
+    اسد اللہ خاں نام۔ مرزا اور نوشہ لقب۔ پہلے اسدؔ تخلص کرتے تھے۔ پھر غالبؔ خاص اختیار کیا۔ نعیم اللہ ولدہ ویر الملک خطابات تھے۔ ۱۷۹۶ء میں بہ مقام آگرہ پیدا ہوئے۔ بسلسلۂ نسب توران (ایران) کے بادشاہ افراسیاب تک پہنچتا ہے۔ جس پر غالبؔ کو بڑا ناز تھا۔ ان کے داداشاہ عالم کے عہد میں دلی آئے اور دربار بادشاہی سے وابستہ ہوئے۔
+  </div>
+  <div style="margin-top:12px; font-size:13px; color:var(--muted); padding:12px; background:rgba(255,255,255,0.03); border-radius:10px;">
+    <strong>Roman transliteration:</strong> Asadullah Khan naam. Mirza aur Nosha laqab. pahle Asad takhallus karte the. phir GHaalib KHaas ikhtiyaar kiyaa. Naiimullah valda viir ul mulk KHitaabaat the. 1796c mein ba maqaam Aagraa paidaa hue...
+  </div>
+</div>
+
+<!-- HAMARI SHAIRI -->
+<div class="reading-section">
+  <div class="reading-header">Reading Passage · Unit V · Pages 91–92 · Essay</div>
+  <div class="reading-title">ہماری شاعری — Hamari Shairi (Our Poetry) — سید مسعود حسن رضوی ادیب</div>
+  <div class="prose-block">
+    بعض لوگ شعر کو بے کار چیز اور شاعری کو بے کاری کا مشغلہ کہتے ہیں۔ معلوم نہیں کہ وہ شعر و شاعری کا کیا مفہوم سمجھتے ہیں۔ مولانا ناصفی لکھنوی نے ان تافہموں کو ایک نہایت مختصر اور جامع جواب دیا ہے۔ فرماتے ہیں:<br><br>
+    شاعری کیا ہے؟ دِلی جذبات کا اظہار ہے<br>
+    دِل اگر بے کار ہے تو شاعری بے کار ہے
+  </div>
+  <div style="margin-top:12px; font-size:13px; color:var(--muted); padding:12px; background:rgba(255,255,255,0.03); border-radius:10px;">
+    <strong>Key vocabulary:</strong> شعر (sher) = poetry/verse · شاعری (shaiari) = poetry/the art of poetry · مشغلہ (mashGHala) = occupation/hobby · جذبات (jazbaat) = emotions · اظہار (izhaar) = expression
+  </div>
+</div>
+
+
+<!-- QUICK REVISION SUMMARY -->
+<div style="margin-top:60px; background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(6,182,212,0.08)); border: 1px solid rgba(168,85,247,0.25); border-radius:24px; padding:40px;">
+  <div style="text-align:center; margin-bottom:30px;">
+    <div style="font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent1); margin-bottom:10px;">One-Page Recap</div>
+    <div style="font-size:28px; font-weight:800; color:white;">Quick Revision Summary</div>
+    <div style="color:var(--muted); font-size:15px; margin-top:8px;">Everything you need in 60 seconds</div>
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:16px;">
+    <div style="background:rgba(255,255,255,0.05); border-radius:14px; padding:20px;">
+      <div style="color:var(--accent1); font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">Unit I</div>
+      <p style="font-size:14px; color:var(--text); line-height:1.8;"><strong>Do Chashmi He (ہ):</strong> Makes previous consonant aspirated — بھ، پھ، تھ، جھ، چھ، دھ، کھ، گھ، ڑھ، ٹھ<br><strong>Letter Groups:</strong> fe/qaaf (ف ق) · ain/ghain (ع غ) · suaad/zuaad (ص ض) · toe/zoe (ط ظ)<br><strong>Capital Roman:</strong> GH=غ · KH=خ (Arabic throat letters)</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.05); border-radius:14px; padding:20px;">
+      <div style="color:var(--accent2); font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">Unit II</div>
+      <p style="font-size:14px; color:var(--text); line-height:1.8;"><strong>Izafat (اضافت):</strong> "-e-" connecting two nouns showing possession — دردِ دل، خوفِ خدا<br><strong>Vaao Atf (واو عطف):</strong> و as "and" in poetry — صبح و شام، گل و بلبل<br><strong>Vaao Madula (واو معدولہ):</strong> Silent و in خو- words — خواب، خواجہ، خود</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.05); border-radius:14px; padding:20px;">
+      <div style="color:var(--accent3); font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">Unit III</div>
+      <p style="font-size:14px; color:var(--text); line-height:1.8;"><strong>Alif Maqsura:</strong> ٰی at end of word sounds like "ā" — اَعلیٰ، اَدنیٰ، دَعویٰ، فَتویٰ، موسیٰ، عیسیٰ<br><strong>Tanwin (دو زبر):</strong> ( ً ) adds "-an" sound — فوراً، تقریباً، مثلاً، غالباً</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.05); border-radius:14px; padding:20px;">
+      <div style="color:var(--accent4); font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">Unit IV</div>
+      <p style="font-size:14px; color:var(--text); line-height:1.8;"><strong>Alif-Lam (ال):</strong> Lam Qamari (ل pronounced): بالکل · Lam Shamsi (ل silent): نظام الدین، دارالسلطنت<br><strong>Transliteration:</strong> Capital for Arabic sounds: KH=خ, GH=غ, T=ٹ, D=ڈ, R=ڑ</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.05); border-radius:14px; padding:20px;">
+      <div style="color:var(--gold); font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">Unit V</div>
+      <p style="font-size:14px; color:var(--text); line-height:1.8;"><strong>Punctuation:</strong> ختمہ ۔ · سکتہ ، · وقفہ ؛ · واوین " " · رابطہ : · سوالیہ ؟ · ندائیہ ! · قوسین ( )<br><strong>Abbreviations:</strong> ﷺ نبی · ؓ صحابہ · ؒ اولیا · تخلص شاعر · ؎ شعر · ھ ہجری</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="urdu-footer">خدا حافظ — بہترین نتائج کی دعا</div>
+  <div>Good luck! · General Urdu (ہماری اردو) · B.A. Semester II · Jamia Millia Islamia</div>
+  <div style="margin-top:6px; font-size:12px;">Based on <em>Hamari Urdu</em>, Maktaba Jamia Delhi (ISBN: 978-93-82997-05-4) · Paper Code: 24-BLU-GU-21 · All 5 Units Covered</div>
+</div>
+
+</body>
+</html>
